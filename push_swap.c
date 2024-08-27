@@ -1,19 +1,82 @@
-/* ************************************************************************** */
-/*                                                                            */
-/*                                                        :::      ::::::::   */
-/*   push_swap.c                                        :+:      :+:    :+:   */
-/*                                                    +:+ +:+         +:+     */
-/*   By: vberdugo <vberdugo@student.42barcelon      +#+  +:+       +#+        */
-/*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/08/24 14:18:40 by vberdugo          #+#    #+#             */
-/*   Updated: 2024/08/24 14:22:44 by vberdugo         ###   ########.fr       */
-/*                                                                            */
-/* ************************************************************************** */
+#include "push_swap.h"
 
-int main(int argc, char **argv)
+int	error_syntax(char *str_n) 
 {
-	if(argc < 0)
-		argv[0][0] = 0;
+	if (!(*str_n == '+'
+			|| *str_n == '-'
+			|| (*str_n >= '0' && *str_n <= '9')))
+		return (1);
+	if ((*str_n == '+'
+			|| *str_n == '-')
+		&& !(str_n[1] >= '0' && str_n[1] <= '9'))
+		return (1);
+	while (*++str_n) 
+	{
+		if (!(*str_n >= '0' && *str_n <= '9'))
+			return (1);
+	}
+	return (0);
+}
 
+int	error_duplicate(t_stack_node *a, int n) 
+{
+	if (!a)
+		return (0);
+	while (a) 
+	{
+		if (a->nbr == n)
+			return (1);
+		a = a->next;
+	}
+	return (0);
+}
+
+void	free_stack(t_stack_node **stack) 
+{
+	t_stack_node	*tmp;
+	t_stack_node	*current;
+
+	if (!stack)
+		return ;
+	current = *stack;
+	while (current) 
+	{
+		tmp = current->next;
+		current->nbr = 0;
+		free(current);
+		current = tmp;
+	}
+	*stack = NULL;
+}
+
+void	free_errors(t_stack_node **a) 
+{
+	free_stack(a);
+	ft_printf("Error\n");
+	exit(1);
+}
+
+int	main(int argc, char **argv)
+{
+	t_stack_node	*a;
+	t_stack_node	*b;
+
+	a = NULL;
+	b = NULL;
+	if (argc == 1 || (argc == 2 && !argv[1][0]))
+		return (1);
+	else if (argc == 2)
+		argv = split(argv[1], ' ');
+	init_stack_a(&a, argv + 1);
+	if (!stack_sorted(a))
+	{
+		if (stack_len(a) == 2)
+			sa(&a, false);
+		else if (stack_len(a) == 3)
+			sort_three(&a);
+		else
+			sort_stacks(&a, &b);
+	}
+	free_stack(&a);
 	return (0);
 }

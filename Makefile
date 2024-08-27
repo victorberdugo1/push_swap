@@ -6,19 +6,7 @@
 #    By: vberdugo <vberdugo@student.42barcelon      +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/08/24 14:14:03 by vberdugo          #+#    #+#              #
-#    Updated: 2024/08/24 14:27:22 by vberdugo         ###   ########.fr        #
-#                                                                              #
-# **************************************************************************** #
-
-# **************************************************************************** #
-#                                                                              #
-#                                                         :::      ::::::::    #
-#    Makefile                                           :+:      :+:    :+:    #
-#                                                     +:+ +:+         +:+      #
-#    By: vberdugo <vberdugo@student.42barcelon      +#+  +:+       +#+         #
-#                                                 +#+#+#+#+#+   +#+            #
-#    Created: 2024/08/05 14:20:04 by vberdugo          #+#    #+#              #
-#    Updated: 2024/08/07 21:45:31 by victor           ###   ########.fr        #
+#    Updated: 2024/08/27 22:43:01 by victor           ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -29,7 +17,8 @@ LIBFT = $(LIBFT_DIR)/libft.a
 
 INCLUDE = libft/libft.h push_swap.h
 
-SRC = push_swap.c push_swap_utils.c
+SRC = push.c rev_rotate.c rotate.c sort_stacks.c sort_three.c swap.c \
+	  init_a_to_b.c init_b_to_a.c push_swap.c split.c stack_init.c stack_utils.c
 
 OBJ = $(SRC:.c=.o)
 
