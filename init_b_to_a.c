@@ -1,10 +1,22 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   init_b_to_a.c                                      :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: victor <marvin@42.fr>                      +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2024/08/28 19:25:27 by victor            #+#    #+#             */
+/*   Updated: 2024/08/28 19:50:19 by victor           ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "push_swap.h"
 
-static void	set_target_b(t_stack_node *a, t_stack_node *b)
+static void	set_target_b(t_lst *a, t_lst *b)
 {
-	t_stack_node	*current_a;
-	t_stack_node	*target_node;
-	long			best_match_index;
+	t_lst	*current_a;
+	t_lst	*target_node;
+	long	best_match_index;
 
 	while (b)
 	{
@@ -12,8 +24,7 @@ static void	set_target_b(t_stack_node *a, t_stack_node *b)
 		current_a = a;
 		while (current_a)
 		{
-			if (current_a->nbr > b->nbr 
-				&& current_a->nbr < best_match_index)
+			if (current_a->nbr > b->nbr && current_a->nbr < best_match_index)
 			{
 				best_match_index = current_a->nbr;
 				target_node = current_a;
@@ -28,7 +39,7 @@ static void	set_target_b(t_stack_node *a, t_stack_node *b)
 	}
 }
 
-void	init_nodes_b(t_stack_node *a, t_stack_node *b)
+void	init_nodes_b(t_lst *a, t_lst *b)
 {
 	current_index(a);
 	current_index(b);

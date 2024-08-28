@@ -1,42 +1,54 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   sort_stacks.c                                      :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: victor <marvin@42.fr>                      +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2024/08/28 19:35:35 by victor            #+#    #+#             */
+/*   Updated: 2024/08/28 20:03:53 by victor           ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "push_swap.h"
 
-static void	rotate_both(t_stack_node **a, t_stack_node **b, t_stack_node *cheapest_node)
+static void	rotate_or_rev_both(t_lst **a, t_lst **b, t_lst *cheap, bool rotate)
 {
-	while (*b != cheapest_node->target_node && *a != cheapest_node)
-		rr(a, b, false);
+	if (rotate)
+	{
+		while (*b != cheap->target_node && *a != cheap)
+			rr(a, b, false);
+	}
+	else
+	{
+		while (*b != cheap->target_node && *a != cheap)
+			rrr(a, b, false);
+	}
 	current_index(*a);
 	current_index(*b);
 }
 
-static void	rev_rotate_both(t_stack_node **a, t_stack_node **b, t_stack_node *cheapest_node)
+static void	move_a_to_b(t_lst **a, t_lst **b)
 {
-	while (*b != cheapest_node->target_node && *a != cheapest_node)
-		rrr(a, b, false);
-	current_index(*a);
-	current_index(*b);
-}
+	t_lst	*cheap;
 
-static void	move_a_to_b(t_stack_node **a, t_stack_node **b)
-{
-	t_stack_node	*cheapest_node;
-
-	cheapest_node = get_cheapest(*a); 
-	if (cheapest_node->above_median && cheapest_node->target_node->above_median)
-		rotate_both(a, b, cheapest_node);
-	else if (!(cheapest_node->above_median) && !(cheapest_node->target_node->above_median))
-		rev_rotate_both(a, b, cheapest_node);
-	prep_for_push(a, cheapest_node, 'a');
-	prep_for_push(b, cheapest_node->target_node, 'b');
+	cheap = get_cheapest(*a);
+	if (cheap->above_median && cheap->target_node->above_median)
+		rotate_or_rev_both(a, b, cheap, true);
+	else if (!(cheap->above_median) && !(cheap->target_node->above_median))
+		rotate_or_rev_both(a, b, cheap, false);
+	prep_for_push(a, cheap, 'a');
+	prep_for_push(b, cheap->target_node, 'b');
 	pb(b, a, false);
 }
 
-static void	move_b_to_a(t_stack_node **a, t_stack_node **b)
+static void	move_b_to_a(t_lst **a, t_lst **b)
 {
 	prep_for_push(a, (*b)->target_node, 'a');
 	pa(a, b, false);
 }
 
-static void	min_on_top(t_stack_node **a)
+static void	min_on_top(t_lst **a)
 {
 	while ((*a)->nbr != find_min(*a)->nbr)
 	{
@@ -47,7 +59,7 @@ static void	min_on_top(t_stack_node **a)
 	}
 }
 
-void	sort_stacks(t_stack_node **a, t_stack_node **b)
+void	sort_stacks(t_lst **a, t_lst **b)
 {
 	int	len_a;
 

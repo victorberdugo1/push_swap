@@ -1,6 +1,18 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   swap.c                                             :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: victor <marvin@42.fr>                      +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2024/08/28 20:29:48 by victor            #+#    #+#             */
+/*   Updated: 2024/08/28 20:30:27 by victor           ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "push_swap.h"
 
-static void	swap(t_stack_node **head)
+static void	swap(t_lst **head)
 {
 	if (!*head || !(*head)->next)
 		return ;
@@ -13,25 +25,24 @@ static void	swap(t_stack_node **head)
 	(*head)->prev = NULL;
 }
 
-void	sa(t_stack_node **a, bool print)
+void	sa(t_lst **a, bool print)
 {
 	swap(a);
 	if (!print)
 		ft_printf("sa\n");
 }
 
-void	sb(t_stack_node **b, bool print)
+void	sb(t_lst **b, bool print)
 {
 	swap(b);
 	if (!print)
 		ft_printf("sb\n");
 }
 
-void	ss(t_stack_node **a, t_stack_node **b, bool print)
+void	ss(t_lst **a, t_lst **b, bool print)
 {
 	swap(a);
 	swap(b);
 	if (!print)
 		ft_printf("ss\n");
 }
-

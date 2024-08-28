@@ -1,8 +1,20 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   push.c                                             :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: victor <marvin@42.fr>                      +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2024/08/28 19:27:06 by victor            #+#    #+#             */
+/*   Updated: 2024/08/28 19:44:52 by victor           ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "push_swap.h"
 
-static void	push(t_stack_node **dst, t_stack_node **src)
+static void	push(t_lst **dst, t_lst **src)
 {
-	t_stack_node	*push_node;
+	t_lst	*push_node;
 
 	if (!*src)
 		return ;
@@ -24,14 +36,14 @@ static void	push(t_stack_node **dst, t_stack_node **src)
 	}
 }
 
-void	pa(t_stack_node **a, t_stack_node **b, bool print)
+void	pa(t_lst **a, t_lst **b, bool print)
 {
-	push(a, b); 
+	push(a, b);
 	if (!print)
 		ft_printf("pa\n");
 }
 
-void	pb(t_stack_node **b, t_stack_node **a, bool print)
+void	pb(t_lst **b, t_lst **a, bool print)
 {
 	push(b, a);
 	if (!print)
