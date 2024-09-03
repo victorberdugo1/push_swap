@@ -6,7 +6,7 @@
 #    By: vberdugo <vberdugo@student.42barcelon      +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/08/24 14:14:03 by vberdugo          #+#    #+#              #
-#    Updated: 2024/08/28 19:48:17 by victor           ###   ########.fr        #
+#    Updated: 2024/09/03 18:46:01 by victor           ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -22,7 +22,7 @@ SRC = push.c rev_rotate.c rotate.c sort_stacks.c sort_three.c swap.c \
 
 OBJ = $(SRC:.c=.o)
 
-CC = gcc
+CC = cc
 
 CFLAGS = -Wall -Wextra -Werror -I$(LIBFT_DIR)
 

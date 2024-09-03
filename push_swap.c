@@ -6,7 +6,7 @@
 /*   By: victor <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/28 19:28:29 by victor            #+#    #+#             */
-/*   Updated: 2024/08/28 19:52:39 by victor           ###   ########.fr       */
+/*   Updated: 2024/09/03 19:17:20 by victor           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -64,17 +64,51 @@ void	free_errors(t_lst **a)
 	exit(1);
 }
 
+#include <stdio.h>
+void print_list_and_check_sorted(t_lst *head) {
+    t_lst *current = head;
+    int sorted = 1;  // Para verificar si está ordenado
+
+    printf("Lista de nodos:\n");
+    while (current && current->next) {
+        printf("%d -> ", current->nbr);
+
+        // Si el valor actual es mayor que el siguiente, no está ordenado
+        if (current->nbr > current->next->nbr) {
+            sorted = 0;
+        }
+
+        current = current->next;
+    }
+
+    if (current) {
+        printf("%d\n", current->nbr);  // Imprime el último valor
+    }
+
+    // Verificar si la lista está ordenada
+    if (sorted) {
+        printf("La lista está ordenada.\n");
+    } else {
+        printf("La lista no está ordenada.\n");
+    }
+}
+
 int	main(int argc, char **argv)
 {
 	t_lst	*a;
 	t_lst	*b;
+	char	**splited_str;
 
+	splited_str = NULL;
 	a = NULL;
 	b = NULL;
 	if (argc == 1 || (argc == 2 && !argv[1][0]))
 		return (1);
 	else if (argc == 2)
-		argv = split(argv[1], ' ');
+	{
+		splited_str = split(argv[1], ' ');
+		argv = splited_str - 1;
+	}
 	init_stack_a(&a, argv + 1);
 	if (!stack_sorted(a))
 	{
@@ -85,6 +119,6 @@ int	main(int argc, char **argv)
 		else
 			sort_stacks(&a, &b);
 	}
-	free_stack(&a);
-	return (0);
+	//print_list_and_check_sorted(a);
+	return (free_splited_str(splited_str), free_stack(&a), 0);
 }

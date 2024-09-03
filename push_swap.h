@@ -6,7 +6,7 @@
 /*   By: vberdugo <vberdugo@student.42barcelon      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/24 14:18:49 by vberdugo          #+#    #+#             */
-/*   Updated: 2024/08/28 19:43:22 by victor           ###   ########.fr       */
+/*   Updated: 2024/09/03 19:00:33 by victor           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -60,5 +60,6 @@ void	pa(t_lst **a, t_lst **b, bool print);
 void	pb(t_lst **b, t_lst **a, bool print);
 void	sort_three(t_lst **a);
 void	sort_stacks(t_lst **a, t_lst **b);
+void	free_splited_str(char **splited_str);
 
 #endif
