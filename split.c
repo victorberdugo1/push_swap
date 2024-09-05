@@ -6,7 +6,7 @@
 /*   By: victor <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/28 20:05:31 by victor            #+#    #+#             */
-/*   Updated: 2024/09/03 19:09:36 by victor           ###   ########.fr       */
+/*   Updated: 2024/09/05 12:16:28 by vberdugo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -88,7 +88,7 @@ char	**split(char *s, char c)
 		return (NULL);
 	while (i < words)
 	{
-		res[i] = get_next_word(s, c, &cursor); // Pasa cursor por referencia
+		res[i] = get_next_word(s, c, &cursor);
 		if (!res[i])
 		{
 			free_splited_str(res);

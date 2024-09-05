@@ -6,7 +6,7 @@
 /*   By: victor <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/28 19:28:29 by victor            #+#    #+#             */
-/*   Updated: 2024/09/03 19:17:20 by victor           ###   ########.fr       */
+/*   Updated: 2024/09/05 12:15:50 by vberdugo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -64,35 +64,6 @@ void	free_errors(t_lst **a)
 	exit(1);
 }
 
-#include <stdio.h>
-void print_list_and_check_sorted(t_lst *head) {
-    t_lst *current = head;
-    int sorted = 1;  // Para verificar si está ordenado
-
-    printf("Lista de nodos:\n");
-    while (current && current->next) {
-        printf("%d -> ", current->nbr);
-
-        // Si el valor actual es mayor que el siguiente, no está ordenado
-        if (current->nbr > current->next->nbr) {
-            sorted = 0;
-        }
-
-        current = current->next;
-    }
-
-    if (current) {
-        printf("%d\n", current->nbr);  // Imprime el último valor
-    }
-
-    // Verificar si la lista está ordenada
-    if (sorted) {
-        printf("La lista está ordenada.\n");
-    } else {
-        printf("La lista no está ordenada.\n");
-    }
-}
-
 int	main(int argc, char **argv)
 {
 	t_lst	*a;
@@ -119,6 +90,5 @@ int	main(int argc, char **argv)
 		else
 			sort_stacks(&a, &b);
 	}
-	//print_list_and_check_sorted(a);
 	return (free_splited_str(splited_str), free_stack(&a), 0);
 }
