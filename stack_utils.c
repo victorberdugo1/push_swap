@@ -6,7 +6,7 @@
 /*   By: victor <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/28 20:14:29 by victor            #+#    #+#             */
-/*   Updated: 2024/08/28 20:29:28 by victor           ###   ########.fr       */
+/*   Updated: 2024/09/05 13:33:02 by vberdugo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,7 +36,7 @@ t_lst	*find_last(t_lst *stack)
 	return (stack);
 }
 
-bool	stack_sorted(t_lst *stack)
+t_bool	stack_sorted(t_lst *stack)
 {
 	if (!stack)
 		return (1);

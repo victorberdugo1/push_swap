@@ -6,7 +6,7 @@
 /*   By: victor <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/28 19:27:06 by victor            #+#    #+#             */
-/*   Updated: 2024/08/28 19:44:52 by victor           ###   ########.fr       */
+/*   Updated: 2024/09/05 13:32:53 by vberdugo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,14 +36,14 @@ static void	push(t_lst **dst, t_lst **src)
 	}
 }
 
-void	pa(t_lst **a, t_lst **b, bool print)
+void	pa(t_lst **a, t_lst **b, t_bool print)
 {
 	push(a, b);
 	if (!print)
 		ft_printf("pa\n");
 }
 
-void	pb(t_lst **b, t_lst **a, bool print)
+void	pb(t_lst **b, t_lst **a, t_bool print)
 {
 	push(b, a);
 	if (!print)

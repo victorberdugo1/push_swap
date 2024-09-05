@@ -6,13 +6,13 @@
 /*   By: victor <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/28 19:35:35 by victor            #+#    #+#             */
-/*   Updated: 2024/08/28 20:03:53 by victor           ###   ########.fr       */
+/*   Updated: 2024/09/05 13:32:59 by vberdugo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-static void	rotate_or_rev_both(t_lst **a, t_lst **b, t_lst *cheap, bool rotate)
+static void	rotate_or_rev_both(t_lst **a, t_lst **b, t_lst *cheap, t_bool rotate)
 {
 	if (rotate)
 	{

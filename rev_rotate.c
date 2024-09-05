@@ -6,7 +6,7 @@
 /*   By: victor <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/28 19:34:42 by victor            #+#    #+#             */
-/*   Updated: 2024/08/28 19:45:38 by victor           ###   ########.fr       */
+/*   Updated: 2024/09/05 13:32:56 by vberdugo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,21 +26,21 @@ static void	rev_rotate(t_lst **stack)
 	last->next->prev = last;
 }
 
-void	rra(t_lst **a, bool print)
+void	rra(t_lst **a, t_bool print)
 {
 	rev_rotate(a);
 	if (!print)
 		ft_printf("rra\n");
 }
 
-void	rrb(t_lst **b, bool print)
+void	rrb(t_lst **b, t_bool print)
 {
 	rev_rotate(b);
 	if (!print)
 		ft_printf("rrb\n");
 }
 
-void	rrr(t_lst **a, t_lst **b, bool print)
+void	rrr(t_lst **a, t_lst **b, t_bool print)
 {
 	rev_rotate(a);
 	rev_rotate(b);
