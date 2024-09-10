@@ -54,7 +54,7 @@ _ _
 a b
 ```
 ```sh
-Ejecutar `ra rb` (equivalente a `rr`):
+Ejecutar `ra rb` (equivale a `rr`):
 5 2
 8 1
 6 3
@@ -91,15 +91,6 @@ a b
 
 ## V.3. El Programa: `push_swap`
 
-### Nombre del Programa
-
-- `push_swap`
-
-### Archivos a Entregar
-
-- Makefile, *.h, *.c
-
-### Makefile
 | Aspecto                 | Detalle                                   |
 |-------------------------|-------------------------------------------|
 | **Nombre del Programa** | `push_swap`                               |
