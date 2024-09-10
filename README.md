@@ -104,7 +104,7 @@ a b
 
 El programa debe:
 
-- Leer los números del stack `a` y mostrarlos ordenados de menor a mayor.
+- Leer los números del stack `a` y ordenarlos de menor a mayor.
 - Mostrar la lista de instrucciones más corta posible para ordenar el stack `a`.
 - Las instrucciones deben separarse utilizando un salto de línea (`\n`).
 
@@ -147,7 +147,7 @@ Se proporcionará un binario para verificar el funcionamiento correcto del progr
 ```sh
 $ ARG="4 67 3 87 23"; ./push_swap $ARG | wc -l
 6
-$ ARG="4 67 3 87 23"; ./push_swap $ARG | ./checker_OS $ARG
+$ ARG="4 67 3 87 23"; ./push_swap $ARG | ./checker_linux $ARG
 OK
 ```
 
