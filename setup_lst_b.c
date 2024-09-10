@@ -1,16 +1,74 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   init_b_to_a.c                                      :+:      :+:    :+:   */
+/*   setup_lst_b.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: victor <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/28 19:25:27 by victor            #+#    #+#             */
-/*   Updated: 2024/08/28 19:50:19 by victor           ###   ########.fr       */
+/*   Updated: 2024/09/10 19:43:00 by victor           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
+
+t_lst	*get_cheapest(t_lst *stack)
+{
+	if (!stack)
+		return (NULL);
+	while (stack)
+	{
+		if (stack->cheapest)
+			return (stack);
+		stack = stack->next;
+	}
+	return (NULL);
+}
+
+static void	append_node(t_lst **stack, int n)
+{
+	t_lst	*node;
+	t_lst	*last_node;
+
+	if (!stack)
+		return ;
+	node = malloc(sizeof(t_lst));
+	if (!node)
+		return ;
+	node->next = NULL;
+	node->nbr = n;
+	if (!(*stack))
+	{
+		*stack = node;
+		node->prev = NULL;
+	}
+	else
+	{
+		last_node = find_last(*stack);
+		last_node->next = node;
+		node->prev = last_node;
+	}
+}
+
+void	init_stack_a(t_lst **a, char **argv)
+{
+	long	n;
+	int		i;
+
+	i = -1;
+	while (argv[i])
+	{
+		if (error_syntax(argv[i]))
+			free_errors(a);
+		n = ft_atol(argv[i]);
+		if (n > INT_MAX || n < INT_MIN)
+			free_errors(a);
+		if (error_duplicate(*a, (int)n))
+			free_errors(a);
+		append_node(a, (int)n);
+		i++;
+	}
+}
 
 static void	set_target_b(t_lst *a, t_lst *b)
 {

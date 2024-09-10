@@ -6,7 +6,7 @@
 #    By: vberdugo <vberdugo@student.42barcelon      +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/08/24 14:14:03 by vberdugo          #+#    #+#              #
-#    Updated: 2024/09/03 18:46:01 by victor           ###   ########.fr        #
+#    Updated: 2024/09/10 19:45:06 by victor           ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -17,8 +17,8 @@ LIBFT = $(LIBFT_DIR)/libft.a
 
 INCLUDE = libft/libft.h push_swap.h
 
-SRC = push.c rev_rotate.c rotate.c sort_stacks.c sort_three.c swap.c \
-	  init_a_to_b.c init_b_to_a.c push_swap.c split.c stack_init.c stack_utils.c
+SRC = push_swap.c split.c push.c rev_rotate.c rotate.c swap.c \
+	  setup_lst_a.c setup_lst_b.c stack_utils.c sort_stacks.c sort_three.c 
 
 OBJ = $(SRC:.c=.o)
 
