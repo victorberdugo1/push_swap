@@ -6,7 +6,7 @@
 /*   By: victor <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/28 20:05:31 by victor            #+#    #+#             */
-/*   Updated: 2024/09/04 08:50:14 by victor           ###   ########.fr       */
+/*   Updated: 2024/09/05 13:33:01 by vberdugo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,7 +15,7 @@
 static int	count_words(char *s, char c)
 {
 	int		count;
-	bool	inside_word;
+	t_bool	inside_word;
 
 	count = 0;
 	inside_word = false;

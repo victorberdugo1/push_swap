@@ -6,7 +6,7 @@
 /*   By: victor <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/28 20:29:48 by victor            #+#    #+#             */
-/*   Updated: 2024/08/28 20:30:27 by victor           ###   ########.fr       */
+/*   Updated: 2024/09/05 13:33:03 by vberdugo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,21 +25,21 @@ static void	swap(t_lst **head)
 	(*head)->prev = NULL;
 }
 
-void	sa(t_lst **a, bool print)
+void	sa(t_lst **a, t_bool print)
 {
 	swap(a);
 	if (!print)
 		ft_printf("sa\n");
 }
 
-void	sb(t_lst **b, bool print)
+void	sb(t_lst **b, t_bool print)
 {
 	swap(b);
 	if (!print)
 		ft_printf("sb\n");
 }
 
-void	ss(t_lst **a, t_lst **b, bool print)
+void	ss(t_lst **a, t_lst **b, t_bool print)
 {
 	swap(a);
 	swap(b);
