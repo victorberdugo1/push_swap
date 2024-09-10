@@ -6,98 +6,85 @@
 /*   By: victor <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/28 20:14:29 by victor            #+#    #+#             */
-/*   Updated: 2024/09/10 13:19:37 by vberdugo         ###   ########.fr       */
+/*   Updated: 2024/08/28 20:29:28 by victor           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-// Cuenta el número de nodos en la lista/pila (stack).
 int	stack_len(t_lst *stack)
 {
-	int	count;  // Contador para el número de nodos
+	int	count;
 
-	if (!stack)  // Si la pila está vacía, devuelve 0
+	if (!stack)
 		return (0);
-
 	count = 0;
-	while (stack)  // Recorre la pila hasta el final
+	while (stack)
 	{
-		stack = stack->next;  // Avanza al siguiente nodo
-		count++;  // Incrementa el contador
+		stack = stack->next;
+		count++;
 	}
-	return (count);  // Devuelve el número total de nodos
+	return (count);
 }
 
-// Encuentra y devuelve el último nodo de la lista/pila (stack).
 t_lst	*find_last(t_lst *stack)
 {
-	if (!stack)  // Si la pila está vacía, devuelve NULL
+	if (!stack)
 		return (NULL);
-
-	// Recorre la pila hasta llegar al último nodo (cuando stack->next es NULL)
 	while (stack->next)
 		stack = stack->next;
-
-	return (stack);  // Devuelve el último nodo
+	return (stack);
 }
 
-// Verifica si la pila está ordenada en orden ascendente.
-t_bool	stack_sorted(t_lst *stack)
+bool	stack_sorted(t_lst *stack)
 {
-	if (!stack)  // Si la pila está vacía, se considera ordenada
+	if (!stack)
 		return (1);
-
-	// Recorre la pila verificando si cada elemento es mayor que el siguiente
 	while (stack->next)
 	{
-		if (stack->nbr > stack->next->nbr)  // Si encuentra un desorden, devuelve false
+		if (stack->nbr > stack->next->nbr)
 			return (false);
 		stack = stack->next;
 	}
-	return (true);  // Si no hay desorden, devuelve true
+	return (true);
 }
 
-// Encuentra y devuelve el nodo con el valor más pequeño en la pila.
 t_lst	*find_min(t_lst *stack)
 {
-	long	min;        // Variable para almacenar el valor mínimo
-	t_lst	*min_node;  // Puntero al nodo con el valor mínimo
+	long	min;
+	t_lst	*min_node;
 
-	if (!stack)  // Si la pila está vacía, devuelve NULL
+	if (!stack)
 		return (NULL);
-
-	min = LONG_MAX;  // Inicializa min con el valor máximo posible para un long
-	while (stack)  // Recorre la pila
+	min = LONG_MAX;
+	while (stack)
 	{
-		if (stack->nbr < min)  // Si encuentra un valor más pequeño
+		if (stack->nbr < min)
 		{
-			min = stack->nbr;  // Actualiza min
-			min_node = stack;  // Actualiza el nodo con el valor mínimo
+			min = stack->nbr;
+			min_node = stack;
 		}
-		stack = stack->next;  // Avanza al siguiente nodo
+		stack = stack->next;
 	}
-	return (min_node);  // Devuelve el nodo con el valor más pequeño
+	return (min_node);
 }
 
-// Encuentra y devuelve el nodo con el valor más grande en la pila.
 t_lst	*find_max(t_lst *stack)
 {
-	long	max;        // Variable para almacenar el valor máximo
-	t_lst	*max_node;  // Puntero al nodo con el valor máximo
+	long	max;
+	t_lst	*max_node;
 
-	if (!stack)  // Si la pila está vacía, devuelve NULL
+	if (!stack)
 		return (NULL);
-
-	max = LONG_MIN;  // Inicializa max con el valor mínimo posible para un long
-	while (stack)  // Recorre la pila
+	max = LONG_MIN;
+	while (stack)
 	{
-		if (stack->nbr > max)  // Si encuentra un valor más grande
+		if (stack->nbr > max)
 		{
-			max = stack->nbr;  // Actualiza max
-			max_node = stack;  // Actualiza el nodo con el valor máximo
+			max = stack->nbr;
+			max_node = stack;
 		}
-		stack = stack->next;  // Avanza al siguiente nodo
+		stack = stack->next;
 	}
-	return (max_node);  // Devuelve el nodo con el valor más grande
+	return (max_node);
 }
