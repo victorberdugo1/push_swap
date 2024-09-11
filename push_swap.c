@@ -6,7 +6,7 @@
 /*   By: victor <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/28 19:28:29 by victor            #+#    #+#             */
-/*   Updated: 2024/09/05 12:15:50 by vberdugo         ###   ########.fr       */
+/*   Updated: 2024/09/11 13:30:41 by victor           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,13 +14,13 @@
 
 int	error_syntax(char *str_n)
 {
-	if (!(*str_n == '+' || *str_n == '-' || (*str_n >= '0' && *str_n <= '9')))
+	if (!(*str_n == '+' || *str_n == '-' || (ft_isdigit(*str_n))))
 		return (1);
-	if ((*str_n == 43 || *str_n == 45) && !(str_n[1] >= '0' && str_n[1] <= '9'))
+	if ((*str_n == 43 || *str_n == 45) && !(ft_isdigit(str_n[1])))
 		return (1);
 	while (*++str_n)
 	{
-		if (!(*str_n >= '0' && *str_n <= '9'))
+		if (!(ft_isdigit(*str_n)))
 			return (1);
 	}
 	return (0);

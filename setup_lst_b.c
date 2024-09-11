@@ -6,7 +6,7 @@
 /*   By: victor <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/28 19:25:27 by victor            #+#    #+#             */
-/*   Updated: 2024/09/10 20:04:00 by victor           ###   ########.fr       */
+/*   Updated: 2024/09/11 12:14:48 by victor           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -55,7 +55,7 @@ void	init_stack_a(t_lst **a, char **argv)
 	long	n;
 	int		i;
 
-	i = -1;
+	i = 0;
 	while (argv[i])
 	{
 		if (error_syntax(argv[i]))

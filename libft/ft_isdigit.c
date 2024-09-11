@@ -6,13 +6,13 @@
 /*   By: vberdugo <vberdugo@student.42barcelon      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/15 14:26:25 by vberdugo          #+#    #+#             */
-/*   Updated: 2024/06/15 15:33:40 by vberdugo         ###   ########.fr       */
+/*   Updated: 2024/09/11 11:45:11 by victor           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 int	ft_isdigit(int c)
 {
 	if (c >= 48 && c <= 57)
-		return (1024);
+		return (1);
 	return (0);
 }
