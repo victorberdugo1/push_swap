@@ -6,32 +6,11 @@
 /*   By: victor <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/28 19:22:07 by victor            #+#    #+#             */
-/*   Updated: 2024/09/10 20:03:23 by victor           ###   ########.fr       */
+/*   Updated: 2024/09/13 13:20:10 by vberdugo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
-
-void	current_index(t_lst *stack)
-{
-	int	i;
-	int	median;
-
-	i = 0;
-	if (!stack)
-		return ;
-	median = stack_len(stack) / 2;
-	while (stack)
-	{
-		stack->index = i;
-		if (i <= median)
-			stack->above_median = true;
-		else
-			stack->above_median = false;
-		stack = stack->next;
-		++i;
-	}
-}
 
 static void	set_target_a(t_lst *a, t_lst *b)
 {
@@ -98,6 +77,19 @@ void	set_cheapest(t_lst *stack)
 		stack = stack->next;
 	}
 	cheapest_node->cheapest = true;
+}
+
+t_lst	*get_cheapest(t_lst *stack)
+{
+	if (!stack)
+		return (NULL);
+	while (stack)
+	{
+		if (stack->cheapest)
+			return (stack);
+		stack = stack->next;
+	}
+	return (NULL);
 }
 
 void	init_nodes_a(t_lst *a, t_lst *b)
