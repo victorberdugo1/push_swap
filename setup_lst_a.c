@@ -6,7 +6,7 @@
 /*   By: victor <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/28 19:22:07 by victor            #+#    #+#             */
-/*   Updated: 2024/09/13 13:20:10 by vberdugo         ###   ########.fr       */
+/*   Updated: 2024/09/14 12:56:35 by vberdugo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -49,9 +49,9 @@ static void	cost_analysis_a(t_lst *a, t_lst *b)
 	while (a)
 	{
 		a->push_cost = a->index;
-		if (!(a->above_median))
+		if (!(a->above_half))
 			a->push_cost = len_a - (a->index);
-		if (a->target_node->above_median)
+		if (a->target_node->above_half)
 			a->push_cost += a->target_node->index;
 		else
 			a->push_cost += len_b - (a->target_node->index);

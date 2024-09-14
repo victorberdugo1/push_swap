@@ -6,7 +6,7 @@
 /*   By: victor <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/28 20:05:02 by victor            #+#    #+#             */
-/*   Updated: 2024/09/10 19:39:56 by victor           ###   ########.fr       */
+/*   Updated: 2024/09/14 12:57:23 by vberdugo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,14 +18,14 @@ void	prep_for_push(t_lst **stack, t_lst *top_node, char stack_name)
 	{
 		if (stack_name == 'a')
 		{
-			if (top_node->above_median)
+			if (top_node->above_half)
 				ra(stack, false);
 			else
 				rra(stack, false);
 		}
 		else if (stack_name == 'b')
 		{
-			if (top_node->above_median)
+			if (top_node->above_half)
 				rb(stack, false);
 			else
 				rrb(stack, false);

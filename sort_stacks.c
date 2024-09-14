@@ -6,7 +6,7 @@
 /*   By: victor <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/28 19:35:35 by victor            #+#    #+#             */
-/*   Updated: 2024/09/05 13:49:07 by vberdugo         ###   ########.fr       */
+/*   Updated: 2024/09/14 12:57:08 by vberdugo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,9 +33,9 @@ static void	move_a_to_b(t_lst **a, t_lst **b)
 	t_lst	*cheap;
 
 	cheap = get_cheapest(*a);
-	if (cheap->above_median && cheap->target_node->above_median)
+	if (cheap->above_half && cheap->target_node->above_half)
 		rotate_or_rev_both(a, b, cheap, true);
-	else if (!(cheap->above_median) && !(cheap->target_node->above_median))
+	else if (!(cheap->above_half) && !(cheap->target_node->above_half))
 		rotate_or_rev_both(a, b, cheap, false);
 	prep_for_push(a, cheap, 'a');
 	prep_for_push(b, cheap->target_node, 'b');
@@ -52,7 +52,7 @@ static void	min_on_top(t_lst **a)
 {
 	while ((*a)->nbr != find_min(*a)->nbr)
 	{
-		if (find_min(*a)->above_median)
+		if (find_min(*a)->above_half)
 			ra(a, false);
 		else
 			rra(a, false);

@@ -6,7 +6,7 @@
 /*   By: vberdugo <vberdugo@student.42barcelon      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/24 14:18:49 by vberdugo          #+#    #+#             */
-/*   Updated: 2024/09/05 13:43:14 by vberdugo         ###   ########.fr       */
+/*   Updated: 2024/09/14 12:54:28 by vberdugo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,7 +32,7 @@ typedef struct s_lst
 	int				nbr;
 	int				index;
 	int				push_cost;
-	t_bool			above_median;
+	t_bool			above_half;
 	t_bool			cheapest;
 	struct s_lst	*target_node;
 	struct s_lst	*next;
